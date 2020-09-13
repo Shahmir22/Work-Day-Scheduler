@@ -1,16 +1,15 @@
+// DisplayDate in header
 var timeM = moment();
 $("#currentDay").text(timeM.format("MMM Do YYYY"));
 
-// $(".saveBtn").on("click", function () {
-//     var arrayEL = $(this).siblings(".description").val();
-//     var timeEL = $(this).parent().attr("id");
-//     localStorage.setItem(timeEL, arrayEL);
-// });
+// setting item for localStorage
+$(".btn").on("click", function () {
+    var aEL = $(this).attr("data-save-num");
+    var timeEL = $(this).siblings("textarea.description").val();
+    localStorage.setItem(aEL, timeEL);
+});
 
-// var history = localStorage.getItem("9am-row");
-// $("#9am-row .description").text(history);
-
-
+// local variables
 
 var currentTime = moment().hour();
 
@@ -41,12 +40,18 @@ fourPm = 4;
 var fivePm = $("#5pm-row");
 fivePm = 5;
 
+// Setting conditions for highlighting current time block and localStorage
+
 if (currentTime > nineAm) {
     $("#9am-text").addClass("past");
 } else if (currentTime == nineAm) {
     $("#9am-text").addClass("present");
 } else if (currentTime < nineAm) {
     $("#9am-text").addClass("future");
+}
+
+if (localStorage.getItem("9") !== null) {
+    $("#9am-text").text(localStorage.getItem("9"));
 }
 
 if (currentTime > tenAm) {
@@ -57,12 +62,20 @@ if (currentTime > tenAm) {
     $("#10am-text").addClass("future");
 }
 
+if (localStorage.getItem("10") !== null) {
+    $("#10am-text").text(localStorage.getItem("10"));
+}
+
 if (currentTime > elevenAm) {
     $("#11am-text").addClass("past");
 } else if (currentTime == elevenAm) {
     $("#11am-text").addClass("present");
 } else if (currentTime < elevenAm) {
     $("#11am-text").addClass("future");
+}
+
+if (localStorage.getItem("11") !== null) {
+    $("#11am-text").text(localStorage.getItem("11"));
 }
 
 if (currentTime > twelvePm) {
@@ -73,12 +86,20 @@ if (currentTime > twelvePm) {
     $("#12pm-text").addClass("future");
 }
 
+if (localStorage.getItem("12") !== null) {
+    $("#12pm-text").text(localStorage.getItem("12"));
+}
+
 if (currentTime > onePm) {
     $("#1pm-text").addClass("past");
 } else if (currentTime == onePm) {
     $("#1pm-text").addClass("present");
 } else if (currentTime < onePm) {
     $("#1pm-text").addClass("future");
+}
+
+if (localStorage.getItem("1") !== null) {
+    $("#1pm-text").text(localStorage.getItem("1"));
 }
 
 if (currentTime > twoPm) {
@@ -89,12 +110,20 @@ if (currentTime > twoPm) {
     $("#2pm-text").addClass("future");
 }
 
+if (localStorage.getItem("2") !== null) {
+    $("#2pm-text").text(localStorage.getItem("2"));
+}
+
 if (currentTime > threePm) {
     $("#3pm-text").addClass("past");
 } else if (currentTime == threePm) {
     $("#3pm-text").addClass("present");
 } else if (currentTime < threePm) {
     $("#3pm-text").addClass("future");
+}
+
+if (localStorage.getItem("3") !== null) {
+    $("#3pm-text").text(localStorage.getItem("3"));
 }
 
 if (currentTime > fourPm) {
@@ -105,6 +134,10 @@ if (currentTime > fourPm) {
     $("#4pm-text").addClass("future");
 }
 
+if (localStorage.getItem("4") !== null) {
+    $("#4pm-text").text(localStorage.getItem("4"));
+}
+
 if (currentTime > fivePm) {
     $("#5pm-text").addClass("past");
 } else if (currentTime == fivePm) {
@@ -112,3 +145,8 @@ if (currentTime > fivePm) {
 } else if (currentTime < fivePm) {
     $("#5pm-text").addClass("future");
 }
+
+if (localStorage.getItem("5") !== null) {
+    $("#5pm-text").text(localStorage.getItem("5"));
+}
+
